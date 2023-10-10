@@ -49,6 +49,6 @@ document.querySelector("#start > aside > footer > div > a:nth-child(5)").onclick
 document.querySelector("#start > aside > footer > div > a:nth-child(6)").onclick = () => {
     ThemeChange('light');
 }
-document.querySelector("#start > aside > footer > div > a:nth-child(7)").onclick = () => {
-    ThemeChange('Moss');
-}
+//document.querySelector("#start > aside > footer > div > a:nth-child(7)").onclick = () => {
+//    ThemeChange('Moss');
+//}
