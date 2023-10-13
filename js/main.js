@@ -282,7 +282,7 @@ if (stellar.plugins.stellar) {
 // ------------------- start 首页置顶文章轮播  新增
 if (stellar.plugins.swiper) {
  const swiper_container = document.getElementById('swiper_container');
- if (swiper_container !== undefined) {
+ if (swiper_container !== undefined && swiper_container !== null) {
    stellar.loadCSS(stellar.plugins.customSwiperTopArticle.css);
    stellar.loadScript(stellar.plugins.customSwiperTopArticle.js, {defer:true}).then(function () {
      var swiper = new Swiper('.blog-slider', {
@@ -301,37 +301,60 @@ if (stellar.plugins.swiper) {
          clickable: true,
        }
      });
-     //swiper_container.onmouseenter = function() {
-     //  swiper.autoplay.stop();
-     //};
-     //swiper_container.onmouseleave = function() {
-     //  swiper.autoplay.start();
-     //}
+     swiper_container.onmouseenter = function() {
+       swiper.autoplay.stop();
+     };
+     swiper_container.onmouseleave = function() {
+       swiper.autoplay.start();
+     }
    });
  }
 // ------------------- end 首页置顶文章轮播  新增
 
  // swiper
- const swiper_api = document.getElementById('swiper-api');
- if (swiper_api != undefined) {
-   stellar.loadCSS(stellar.plugins.swiper.css);
-   stellar.loadScript(stellar.plugins.swiper.js, {defer:true}).then(function () {
-     var swiper = new Swiper('.swiper-container', {
-       slidesPerView: 'auto',
-       spaceBetween: 8,
-       centeredSlides: true,
-       loop: true,
-       pagination: {
-         el: '.swiper-pagination',
-         clickable: true,
-       },
-       navigation: {
-         nextEl: '.swiper-button-next',
-         prevEl: '.swiper-button-prev',
-       },
-     });
-   })
- }
+// const swiper_api = document.getElementById('swiper-api');
+// if (swiper_api != undefined) {
+//   stellar.loadCSS(stellar.plugins.swiper.css);
+//   stellar.loadScript(stellar.plugins.swiper.js, {defer:true}).then(function () {
+//     var swiper = new Swiper('.swiper-container', {
+//       slidesPerView: 'auto',
+//       spaceBetween: 8,
+//       centeredSlides: true,
+//       loop: true,
+//       pagination: {
+//         el: '.swiper-pagination',
+//         clickable: true,
+//       },
+//       navigation: {
+//         nextEl: '.swiper-button-next',
+//         prevEl: '.swiper-button-prev',
+//       },
+//     });
+//   })
+// }
+ 
+  const swiper_api = document.getElementById('swiper-api');
+  if (swiper_api != undefined) {
+    stellar.loadCSS(stellar.plugins.swiper.css);
+    stellar.loadScript(stellar.plugins.swiper.js, { defer: true }).then(function () {
+      const effect = swiper_api.getAttribute('effect') || '';
+      var swiper = new Swiper('.swiper#swiper-api', {
+        slidesPerView: 'auto',
+        spaceBetween: 8,
+        centeredSlides: true,
+        effect: effect,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    })
+  }
 }
 
 
@@ -360,7 +383,13 @@ if (stellar.plugins.fancybox) {
   if (stellar.plugins.fancybox.selector) {
     selector += `, ${stellar.plugins.fancybox.selector}`
   }
-  if (document.querySelectorAll(selector).length !== 0) {
+  var selectItems = document.querySelectorAll(selector);
+  if (selectItems.length !== 0) {
+	for (var index = 0; index < selectItems.length ; index++) {
+	  if(selectItems[index].getAttribute('fancybox') === undefined || selectItems[index].getAttribute('fancybox') === null){
+		selectItems[index].setAttribute('fancybox', 'true');
+	  }
+    }
     stellar.loadCSS(stellar.plugins.fancybox.css);
     stellar.loadScript(stellar.plugins.fancybox.js, { defer: true }).then(function () {
       Fancybox.bind(selector, {

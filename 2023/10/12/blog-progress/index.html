@@ -103,11 +103,6 @@
 <div class="widgets">
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
-<widget class="widget-wrapper markdown"><div class="widget-header cap theme dis-select"><span class="name">欢迎来到SFZhang的知识库</span></div><div class="widget-body fs14"><p>不以物喜，不以己悲</p>
-<script src="https://v1.hitokoto.cn/?c=i&encode=js&select=%23hitokoto" defer=""></script>
-<p>一诗：<span id="hitokoto"></span></p>
-</div></widget>
-
 
 <widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Stellar主题添加顶部加载进度条</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-text">资源文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS"><span class="toc-text">JS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-text">引入资源文件</span></a></li></ol></div></div></widget>
 
@@ -356,8 +351,8 @@
   if ('true' == 'true') {
     stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"/customize/js/flying-pages.min.js"});
   }
-  if ('false' == 'true') {
-    stellar.plugins.fancybox = Object.assign({"enable":false,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"/customize/css/fancybox.css","selector":".swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img"});
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"/customize/css/fancybox.css","selector":".swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, .image-bg img"});
   }
   if ('false' == 'true') {
     stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
@@ -368,7 +363,7 @@
   
   // -------- start 自定义首页文章轮播
 	if ('true' == 'true') {
-	  stellar.plugins.customSwiperTopArticle = Object.assign({"enable":true,"css":"https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/css/swiper/swiper.min.css","js":"https://cdn.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/swiper/swiper.min.js","init_js":"/customize/js/swiper_init.js"});
+	  stellar.plugins.customSwiperTopArticle = Object.assign({"enable":true,"css":"/customize/css/swiper-bundle.min.css","js":"/customize/js/swiper-bundle.min.js","init_js":"/customize/js/swiper_init.js"});
 	}
   // -------- end 自定义首页文章轮播
 </script>
