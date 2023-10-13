@@ -404,6 +404,28 @@ if (stellar.plugins.fancybox) {
       });
     })
   }
+  //时间线图片
+  selectItems = document.querySelectorAll(".timeline");
+  if (selectItems.length !== 0) {
+	for (var index = 0; index < selectItems.length ; index++) {
+	  if(selectItems[index].getAttribute('fancybox') === undefined || selectItems[index].getAttribute('fancybox') === null){
+		selectItems[index].setAttribute('fancybox', 'true');
+	  }
+    }
+    stellar.loadCSS(stellar.plugins.fancybox.css);
+    stellar.loadScript(stellar.plugins.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        groupAll: true,
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: function (fancybox, carousel, slide) {
+          return slide.$trigger.alt || null
+        }
+      });
+    })
+  }
 }
 
 
